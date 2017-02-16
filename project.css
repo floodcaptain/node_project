@@ -1,0 +1,29 @@
+#design{
+    text-align: center;
+    color: brown;
+}
+
+#coverdiv{
+    height: 40%;
+    width: 100%;
+    background-color: bisque;
+}
+
+#bottomdiv{
+    height: 60%;
+    width: 100%;
+    display: inline-flex;
+}
+ #leftdiv{
+    width: 50%;
+     height: 300px;
+     background-color: darkgray;
+     overflow: scroll;
+ }
+
+ #rightdiv{
+     width: 50%;
+     height: 300px;
+     background-color: orchid;
+     overflow: scroll;
+ }
