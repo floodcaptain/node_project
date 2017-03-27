@@ -1,28 +1,101 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
+<!DOCTYPE html>
+<html>
 
-      <meta charset="UTF-8">
-      <title>TESSION</title>
-      <link rel="stylesheet" type="text/css" href="/project.css" >
-    </head>
-    <body>
+<style>
+.tooltip {
+    position: relative;
+  background-color: #ffffff;
+  border: 1px solid grey;
+  box-sizing: border-box;
+  display: flex;
+  height: 45px;
+  letter-spacing: 2px;
+  padding: .8em 1em;
+  transition: all .3s ease;
+  min-width:500px; 
+  width:400px;
+  margin:auto;
+}
 
-    <div id="coverdiv">
-        <p id="design">THIS IS TESSION</p>
-    </div>
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    min-width:120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
 
-     <div id="bottomdiv">
-         <div id="leftdiv">
-             <p>this is column 1</p>
+    /* Position the tooltip */
+    left: calc(100% + 1.5em);
+      top: 50%;
+      transform: translateY(-50%); 
+      font-size: 18px;
+    position: absolute;
+    z-index: 1;
+}
 
-    </div>
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip:hover {
+    background-color: blue;
+    border-color: blue;
+    color: white;
+  }
+  .footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+</style>
+<body style="text-align:center;" ng-app="myApp" ng-controller="myController">
 
-    <div id="rightdiv">
-        <p>this is column 2</p>
-    </div>
-    </div>
-    <script src="/javascriptfile.js"></script>
+<header style="margin-bottom: 30px;background: grey;height: 25px;padding:15px;"> Header</header>
+<div ng-repeat="data in appJSON.timestampData">
+    <div class="tooltip">
+<span ng-bind="data.value"></span>
+<span class="tooltiptext" ng-bind="data.tip"></span>
+</div>
+  <br/><br/>
+</div>
 
-    </body>
-    </html>
+<footer class="footer">
+   <p>footer</p>
+</footer>  
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+var app = angular.module("myApp",[]);
+
+app.controller("myController",["$scope","$http",
+function($scope,$http){
+//controller begins -- 
+$scope.appJSON = {
+"timestampData":[{"value":"first","tip":"first tip"},
+{"value":"second","tip":"second tip"},
+{"value":"third","tip":"third tip"},]
+}
+
+/*
+$http({
+method: 'GET',
+url: 'api url' +"?id="+userId,
+}).then(function() {
+//success code
+$scope.appJSON.timstampData = data.data
+},function() {
+//failure code
+});
+*/
+//controller ends here --
+}]);
+</script>
+</html>
+

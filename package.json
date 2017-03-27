@@ -1,13 +1,22 @@
 {
-  "name": "node_project",
+  "name": "starter-node-angular",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scotch-io/starter-node-angular.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scotch-io/starter-node-angular/issues"
+  },
+  "homepage": "https://github.com/scotch-io/starter-node-angular#readme",
   "dependencies": {
     "express": "^4.14.1"
   },
