@@ -1,16 +1,13 @@
+var express  = require('express');
+var http = require('http');
+var path = require('path');
 
-console.log("this is a test for git");
-var express = require('express');
-var app=express();
-var path=require("path")
+var app = express();
+var port =8878;
 
-app.listen(3000,function(){console.log('listening on 3000');});
+var route = require('./routes');
+app.use('/',route);
 
-app.get('/',function(req,res){
-    res.sendFile(path.join(__dirname,'/index.html'));
-    console.log('from /');
+var server = http.createServer(app).listen(port, function () {
+    console.log('Express server listening on port',port);
 });
-
-app.get('/project.css', function(req, res){ res.sendFile(path.join(__dirname,'project.css'));
-});
-
